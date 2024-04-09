@@ -1,18 +1,18 @@
 'use client';
 
+import { IMessages } from "@/interfaces/chat";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-interface IBallonChat {
-    type: "system" | "user";
-    message: string;
-    animation?: boolean;
-}
+type IBallonChat = {
+    scrollChatToBottom: VoidFunction
+} & IMessages
 
 function BallonChat({
     type,
     message,
-    animation = false
+    animation = false,
+    scrollChatToBottom
 }: IBallonChat) {
     const [messageWithDelay, setMessageWithDelay] = useState("");
 
@@ -35,6 +35,7 @@ function BallonChat({
             }
             messageElement += message.charAt(messageIndex);
             setMessageWithDelay(messageElement);
+            scrollChatToBottom();
             messageIndex++;
         }, 50);
     }

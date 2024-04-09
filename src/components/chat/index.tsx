@@ -1,24 +1,80 @@
+"use client";
+
+import { IMessages } from "@/interfaces/chat";
+import { sendChatGPT } from "@/services/chat";
 import { getGreeting } from "@/utils/frases";
+import { useEffect, useRef, useState } from "react";
 import BallonChat from "../ballonChat";
 import FormChat from "../formChat";
 
 function Chat() {
+    const [messages, setMessages] = useState<IMessages[]>([{
+        type: "system",
+        message: getGreeting() + " Sou um chat desenvolvido para responder perguntas a respeito de Paulo Roberto, quaisquer duvidas sobre suas experiencias e carreira e estarei a disposição para responder. ",
+    }]);
+    const [loading, setLoading] = useState(false);
+    const chatRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (messages.length === 1)
+            return
+        const lastMessage = messages[messages.length - 1];
+
+        if (lastMessage.type === "user") {
+            const lastMessageClient = messages.findLast(mesg => mesg.type === "user");
+
+            if (lastMessageClient)
+                messageToChatGPT(lastMessageClient.message);
+        }
+
+        scrollChatToBottom();
+    }, [messages])
+
+    const insertMessage = (message: IMessages) => {
+        setMessages([...messages, message]);
+    }
+
+    const messageToChatGPT = async (message: string) => {
+        setLoading(true);
+        const messageByChatGPT = await sendChatGPT(message);
+        setMessages([...messages, {
+            message: messageByChatGPT,
+            type: "system",
+            animation: true,
+        }]);
+        setLoading(false);
+    }
+
+    const scrollChatToBottom = () => {
+        chatRef.current!.scrollTop = chatRef.current!.scrollHeight - 500;
+    };
+
     return (
         <div className="flex flex-col flex-1 w-[100vw] h-[100vh]">
-            <div className="flex rounded-lg flex-col mt-24 flex-[11] w-full px-[20%] overflow-auto ">
-                <BallonChat
-                    type="system"
-                    message={getGreeting() + " Sou um chat desenvolvido para responder perguntas a respeito de Paulo Roberto, quaisquer duvidas sobre suas experiencias e carreira e estarei a disposição para responder. "} />
-                <BallonChat type="user" message="Tenho uma duvida." />
-                <BallonChat type="system" animation message="Lorem ipsum dolor sit amet. Et quibusdam minima est fuga aspernatur vel exercitationem molestias ut facilis cupiditate. Ut repudiandae molestiae aut ullam minima quo magnam reprehenderit ut consectetur corrupti ea accusamus corrupti ut sunt nulla.
-
-Aut asperiores impedit est aspernatur sequi hic eius sapiente ut labore placeat. Rem voluptas eligendi et unde tempora est laudantium veniam et corporis magnam. Qui quia dignissimos rem similique odio sit expedita mollitia est omnis saepe ut dolor fuga in mollitia voluptate. Aut asperiores minima est vero corporis et ullam dolor est ducimus cupiditate aut amet officiis.
-
-Ut illum excepturi ex praesentium fugit et animi voluptatem. Ut nihil dolore in nesciunt veritatis ab debitis consequatur At voluptatum voluptatibus sit velit quisquam." />
+            <div
+                ref={chatRef}
+                className="flex rounded-lg flex-col mt-24 h-[80%] w-full px-[20%] overflow-auto "
+            >
+                {
+                    messages.map((item, index) => {
+                        return (
+                            <BallonChat
+                                key={"message" + index}
+                                type={item.type}
+                                message={item.message}
+                                animation={item.animation}
+                                scrollChatToBottom={scrollChatToBottom}
+                            />
+                        )
+                    })
+                }
+                {
+                    loading && <p>Carregando ...</p>
+                }
 
             </div>
-            <div className="flex flex-col justify-start flex-[1] p-10">
-                <FormChat />
+            <div className="flex flex-col justify-start h-[20%] p-10">
+                <FormChat onSave={insertMessage} />
             </div>
         </div>
     );
