@@ -24,7 +24,7 @@ function FormChat({
     }
 
     return (
-        <div className="flex items-center h-[100%] px-[20%] bg-opacity-40">
+        <div className="flex items-center lg:px-[20%] bg-opacity-40">
             <input
                 className="flex-[11] h-[100%] px-11 m-4 rounded-full"
                 placeholder="Faça sua pergunta aqui."

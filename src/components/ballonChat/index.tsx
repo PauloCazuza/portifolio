@@ -47,7 +47,7 @@ function BallonChat({
                     type === "system"
                         ?
                         <div className="flex w-full items-end justify-end">
-                            <div className="text-justify bg-blue-500 text-white py-2 px-4 max-w-[50%] rounded-tl-xl rounded-br-xl rounded-bl-xl shadow">
+                            <div className="text-justify bg-blue-500 text-white py-2 px-4 max-w-[80%] lg:max-w-[50%] rounded-tl-xl rounded-br-xl rounded-bl-xl shadow">
                                 <p>{messageWithDelay}</p>
                             </div>
                             <div className="flex h-full">
@@ -68,7 +68,7 @@ function BallonChat({
                                     alt="Paulo Roberto"
                                 />
                             </div>
-                            <div className="text-justify bg-gray-200 py-2 px-4 rounded-tr-xl max-w-[50%] rounded-bl-xl rounded-br-xl shadow">
+                            <div className="text-justify bg-gray-200 py-2 px-4 rounded-tr-xl  max-w-[80%] lg:max-w-[50%] rounded-bl-xl rounded-br-xl shadow">
                                 <p>{message}</p>
                             </div>
                         </div>

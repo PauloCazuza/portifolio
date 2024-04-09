@@ -60,7 +60,7 @@ function Chat() {
         <div className="flex flex-col flex-1 w-[100vw] h-[100vh]">
             <div
                 ref={chatRef}
-                className="flex rounded-lg flex-col mt-24 h-[80%] w-full px-[20%] overflow-auto "
+                className="flex rounded-lg flex-col mt-24 h-[80%] w-full lg:px-[20%] overflow-auto "
             >
                 {
                     messages.map((item, index) => {
@@ -88,9 +88,9 @@ function Chat() {
                 }
 
             </div>
-            <div className="flex flex-col justify-start h-[20%] p-10">
+            <>
                 <FormChat onSave={insertMessage} />
-            </div>
+            </>
         </div>
     );
 }
