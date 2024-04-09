@@ -28,10 +28,15 @@ body {
     text-wrap: balance;
   }
 }
-
+/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--secondary) var(--primary);
+}
+
+:root {
+  --primary: #0f172a;
+  --secondary: cornflowerblue;
 }
 
 /* Chrome, Edge, and Safari */
