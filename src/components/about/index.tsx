@@ -15,7 +15,7 @@ function About() {
                 </p>
             </div>
             <div>
-                <p className="text-xl py-4 text-center">Distribuição do uso das ferramentas nos ultimos 5 anos</p>
+                <p className="text-2xl py-4 text-center">Distribuição do uso das ferramentas nos ultimos 5 anos</p>
             </div>
             <div className="flex flex-col px-[15%]">
                 <div className="flex flex-1 justify-around">
@@ -32,7 +32,7 @@ function About() {
                 </div>
             </div>
             <div>
-                <p className="text-xl py-4 text-center">Meus Estudos</p>
+                <p className="text-2xl py-4 text-center">Meus Estudos</p>
             </div>
             <div className="flex flex-col px-[15%]">
                 <div className="flex sm:flex-col md:flex-col lg:flex-row justify-around items-center">
