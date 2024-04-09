@@ -3,6 +3,7 @@
 import { IMessages } from "@/interfaces/chat";
 import { sendChatGPT } from "@/services/chat";
 import { getGreeting } from "@/utils/frases";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import BallonChat from "../ballonChat";
 import FormChat from "../formChat";
@@ -31,22 +32,28 @@ function Chat() {
     }, [messages])
 
     const insertMessage = (message: IMessages) => {
+        setLoading(true);
         setMessages([...messages, message]);
     }
 
     const messageToChatGPT = async (message: string) => {
         setLoading(true);
-        const messageByChatGPT = await sendChatGPT(message);
-        setMessages([...messages, {
-            message: messageByChatGPT,
-            type: "system",
-            animation: true,
-        }]);
-        setLoading(false);
+        try {
+            const messageByChatGPT = await sendChatGPT(message);
+            setMessages([...messages, {
+                message: messageByChatGPT,
+                type: "system",
+                animation: true,
+            }]);
+        } catch (error) {
+
+        } finally {
+            setLoading(false);
+        }
     }
 
     const scrollChatToBottom = () => {
-        chatRef.current!.scrollTop = chatRef.current!.scrollHeight - 500;
+        chatRef.current!.scrollTop = chatRef.current!.scrollHeight;
     };
 
     return (
@@ -69,7 +76,15 @@ function Chat() {
                     })
                 }
                 {
-                    loading && <p>Carregando ...</p>
+                    loading && (
+                        <div className="flex justify-end">
+                            <Image
+                                src={require("../../assets/digitando.gif")}
+                                alt="digitando..."
+                                className="object-cover size-8"
+                            />
+                        </div>
+                    )
                 }
 
             </div>
