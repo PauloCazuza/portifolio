@@ -11,7 +11,8 @@ import FormChat from "../formChat";
 function Chat() {
     const [messages, setMessages] = useState<IMessages[]>([{
         type: "system",
-        message: getGreeting() + " Sou um chat desenvolvido para responder perguntas a respeito de Paulo Roberto, quaisquer duvidas sobre suas experiencias e carreira e estarei a disposição para responder. Experimente pedir um resumo sobre mim. ",
+        animation: true,
+        message: getGreeting() + " Sou um chat desenvolvido para responder perguntas a respeito de Paulo Roberto, quaisquer duvidas sobre suas experiencias e carreira e estarei a disposição para responder.",
     }]);
     const [loading, setLoading] = useState(false);
     const chatRef = useRef<HTMLDivElement>(null);
@@ -53,7 +54,11 @@ function Chat() {
     }
 
     const scrollChatToBottom = () => {
-        chatRef.current!.scrollTop = chatRef.current!.scrollHeight;
+        try {
+            chatRef.current!.scrollTop = chatRef.current!.scrollHeight;
+        } catch (error) {
+            
+        }
     };
 
     return (

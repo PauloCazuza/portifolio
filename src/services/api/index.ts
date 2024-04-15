@@ -7,3 +7,7 @@ export const api = axios.create({
     Authorization: `Bearer ${API_KEY_CHAT}`,
   },
 });
+
+export const apiService = axios.create({
+  baseURL: "http://localhost:3333",
+});
