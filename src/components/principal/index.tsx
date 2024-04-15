@@ -4,9 +4,11 @@ import Image from "next/image";
 import { useState } from "react";
 import ButtonPrincipal from "../buttonPrincipal";
 import ModalContact from "../modalContact";
+import ModalViewCV from "../modalViewCV";
 
 function Principal() {
-    const [showModal, setShowModal] = useState(false);
+    const [showModalEmail, setShowModalEmail] = useState(false);
+    const [showModalCV, setShowModalCV] = useState(false);
 
     return (
         <>
@@ -30,11 +32,14 @@ function Principal() {
                         Dev. Full Stack
                     </p>
                     <div className="py-5">
-                        <ButtonPrincipal text="Download CV" />
+                        <ButtonPrincipal
+                            text="Visualizar CV"
+                            onClick={() => setShowModalCV(true)}
+                        />
                         <ButtonPrincipal
                             text="Contate-me"
                             type="secondary"
-                            onClick={() => setShowModal(true)}
+                            onClick={() => setShowModalEmail(true)}
                         />
                     </div>
                 </div>
@@ -44,7 +49,12 @@ function Principal() {
                     alt="Background Principal"
                 />
             </div>
-            <ModalContact showModal={showModal} setShowModal={setShowModal} />
+            <div>
+                <ModalContact key="modal-contact" showModal={showModalEmail} setShowModal={setShowModalEmail} />
+            </div>
+            <div>
+                <ModalViewCV key="modal-view" showModal={showModalCV} setShowModal={setShowModalCV} />
+            </div>
         </>
     );
 }

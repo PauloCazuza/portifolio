@@ -6,8 +6,6 @@ async function sendEmail({ body, subject, to }: IEmail) {
     `send-email?to=${to}&subject=${subject}&message=${body}`
   );
 
-  console.log(res.data);
-
   if (res.status === 200)
     return true;
 

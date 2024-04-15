@@ -53,7 +53,7 @@ function ModalContact({
             title=""
             hasTitle={false}
             show={showModal}
-            onClose={() => setShowModal(!showModal)}
+            onClose={() => setShowModal(false)}
         >
             <div className="flex flex-col lg:flex-row lg:p-10 lg:w-[70vw] lg:h-[55vh] justify-center items-center">
                 <div className="flex flex-[2] items-center justify-center size-72">
@@ -64,7 +64,7 @@ function ModalContact({
                     />
                 </div>
                 <div className="flex flex-[3] flex-col p-5 w-full items-center">
-                    <p className="w-[70%] font-bold">Contato:</p>
+                    <p className="w-[70%] font-bold">Envie um email para mim:</p>
                     <input
                         className="mt-5 mb-2 p-2 rounded-3xl text-base bg-[#e6e6e6] w-[70%]"
                         placeholder="Nome"

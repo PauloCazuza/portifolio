@@ -23,6 +23,7 @@ function Modal({
             onClose();
     });
 
+
     if (!show) return
 
     return (

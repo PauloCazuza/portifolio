@@ -12,7 +12,7 @@ function Chat() {
     const [messages, setMessages] = useState<IMessages[]>([{
         type: "system",
         animation: true,
-        message: getGreeting() + " Sou um chat desenvolvido para responder perguntas a respeito de Paulo Roberto, quaisquer duvidas sobre suas experiencias e carreira e estarei a disposição para responder.",
+        message: getGreeting() + " Sou um chat desenvolvido para responder perguntas a respeito de Paulo Roberto, quaisquer duvidas sobre suas experiencias e carreira estarei a disposição para responder.",
     }]);
     const [loading, setLoading] = useState(false);
     const chatRef = useRef<HTMLDivElement>(null);
