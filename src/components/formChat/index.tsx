@@ -27,7 +27,7 @@ function FormChat({
         <div className="flex items-center lg:px-[20%] mb-10 bg-opacity-40">
             <input
                 className="flex-[11] h-[100%] px-11 m-4 rounded-full"
-                placeholder="Faça sua pergunta aqui."
+                placeholder="Ex: Quais as hards e softs skills Paulo têm ?"
                 onKeyDown={(e) => {
                     if (e.keyCode === 13) {
                         submit();

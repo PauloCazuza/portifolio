@@ -11,7 +11,7 @@ function About() {
                 {/* <p className="text-xl py-4">Introdução</p> */}
 
                 <p className="text-center text-xl">
-                    Com uma paixão inigualável pela tecnologia e uma expertise sólida, eu sou um desenvolvedor determinado a superar expectativas. Com habilidades afiadas em .NET Core, ReactJS, React Native, Firebase e Progress 4GL, estou preparado para criar soluções inovadoras que transcendem os limites do convencional. Minha jornada profissional, marcada por avanços rápidos e liderança eficaz, reflete meu compromisso com a excelência em cada projeto.
+                    Com uma paixão inigualável pela tecnologia e uma expertise sólida, eu sou um desenvolvedor determinado a superar expectativas. Com habilidades afiadas em .NET Core, ReactJS, React Native, Firebase e Progress 4GL, estou preparado para criar soluções inovadoras que transcendem os limites do convencional. Minha jornada profissional, marcada por avanços rápidos e liderança eficaz, reflete meu compromisso com a excelência em cada projeto. Para mais informações por favor não deixe de interagir com o chat em Sobre.
                 </p>
             </div>
             <div>
