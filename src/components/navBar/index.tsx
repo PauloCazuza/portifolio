@@ -7,6 +7,8 @@ import ModalContact from "../modalContact";
 function NavBar() {
     const [showHamburger, setShowHamburguer] = useState(false);
     const [colorNavBar, setColorNavBar] = useState("bg-transparent");
+    if (typeof window === "undefined")
+        return null;
     const [linkCurrent, setLinkCurrent] = useState(window.location.pathname);
     const [showModal, setShowModal] = useState(false);
 
@@ -27,6 +29,10 @@ function NavBar() {
             })
 
         });
+
+        return () => {
+            window.removeEventListener("scroll", () => {});
+        }
     }, []);
 
     const linkSelected = (link: string) => {
