@@ -16,6 +16,9 @@ function Modal({
     show,
     onClose
 }: IModal) {
+    if (typeof document === "undefined")
+        return null;
+    
     document.addEventListener('click', function (event) {
         var backgroundDiv = document.getElementById('div-background-modal');
         // @ts-ignore

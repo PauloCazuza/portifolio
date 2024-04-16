@@ -1,6 +1,10 @@
+'use client';
+
 function ViewCV() {
-    const width = window.innerWidth * 0.4;
-    const height = window.innerHeight * 0.8;
+    if (typeof window === "undefined")
+        return null;
+    const width = window?.innerWidth * 0.4;
+    const height = window?.innerHeight * 0.8;
 
     return (
         <div className="flex">
