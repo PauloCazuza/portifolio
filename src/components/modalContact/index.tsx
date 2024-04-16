@@ -64,7 +64,7 @@ function ModalContact({
                     />
                 </div>
                 <div className="flex flex-[3] flex-col p-5 w-full items-center">
-                    <p className="w-[70%] font-bold">Envie um email para mim:</p>
+                    <p className="w-[70%] font-bold">Envie um email:</p>
                     <input
                         className="mt-5 mb-2 p-2 rounded-3xl text-base bg-[#e6e6e6] w-[70%]"
                         placeholder="Nome"

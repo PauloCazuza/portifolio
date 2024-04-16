@@ -1,13 +1,6 @@
 import axios from "axios";
-import { API_KEY_CHAT } from "../keys";
-
-export const api = axios.create({
-  baseURL: "https://api.openai.com/v1/",
-  headers: {
-    Authorization: `Bearer ${API_KEY_CHAT}`,
-  },
-});
 
 export const apiService = axios.create({
-  baseURL: "http://localhost:3333",
+  // baseURL: "http://localhost:3333",
+  baseURL: "https://api-email-nest-75g5hcuea-paulo-roberto-lopes-projects.vercel.app",
 });
