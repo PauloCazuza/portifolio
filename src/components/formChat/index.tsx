@@ -40,7 +40,7 @@ function FormChat({
                 className=" flex  mr-4 justify-center items-center h-1/2"
                 onClick={submit}
             >
-                <div className=" bg-blue-700 rounded-full size-16 p-4 flex items-center">
+                <div className=" bg-[#639dbc] rounded-full size-16 p-4 flex items-center">
                     <Image
                         src={require("../../assets/send.png")}
                         className="object-contain "

@@ -1,6 +1,6 @@
 "use client";
 
-import { IsSafari } from "@/utils/browser";
+import { isMobile, isSafari } from "@/utils/browser";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,28 +12,35 @@ const AnimationJson = require("../../assets/Animation-paulo.json");
 function Principal() {
     const [showModalEmail, setShowModalEmail] = useState(false);
     const [showModalCV, setShowModalCV] = useState(false);
-    const percentage = IsSafari() ? document.body.offsetWidth * 0.5 * 0.8 : "100%";
-    console.log("Is Safari", IsSafari())
+    const percentage = isSafari() ? document.body.offsetWidth * 0.8 * (isMobile() ? 1 : 0.5) : "100%";
 
     return (
         <>
             <div
-                className="rounded-s-xl flex w-[100%] h-[100vh] bg-[#E5E5E5]"
+                className="rounded-s-xl flex flex-col  md:flex-row w-[100%] h-[100vh] bg-[#E5E5E5]"
             >
-                <div className="flex flex-col flex-1 justify-center pl-36  h-full w-full
-                    animate-fade-right animate-once 
+                <div className="
+                    flex flex-col flex-1 
+                    justify-center 
+                    md:pl-36  
+                    h-full w-full 
+                    mt-20 md:mt-0 
+                    text-center 
+                    md:text-justify
+                    animate-fade-right 
+                    animate-once
                 ">
                     <div className="flex-1 flex justify-end flex-col">
-                        <p className="text-[#445864] text-2xl">
+                        <p className="text-[#445864] text-xl md:text-2xl">
                             Olá pessoas,
                         </p>
-                        <p className="text-[#445864] text-7xl font-bold">
+                        <p className="text-[#445864] text-6xl md:text-7xl font-bold">
                             EU SOU
                         </p>
-                        <p className="text-[#445864] text-7xl font-bold">
+                        <p className="text-[#445864] text-6xl md:text-7xl font-bold">
                             PAULO ROBERTO
                         </p>
-                        <p className="text-[#445864] text-2xl">
+                        <p className="text-[#445864] text-xl md:text-2xl">
                             Seja bem-vindo ao meu portifólio website
                         </p>
                     </div>
@@ -41,7 +48,7 @@ function Principal() {
                         className="flex flex-1 flex-col justify-around"
                     >
                         <div
-                            className="flex justify-start flex-1 items-center"
+                            className="flex justify-center mt-5 md:mt-0 md:justify-start flex-1 items-center"
                         >
                             <Link
                                 href="/sobre"
@@ -50,7 +57,7 @@ function Principal() {
                                 Saiba mais sobre mim
                             </Link>
                         </div>
-                        <div className="flex flex-1 items-end">
+                        <div className="flex flex-1 md:justify-start justify-center md:items-end">
                             <Link
                                 href="https://github.com/PauloCazuza"
                                 className="mr-4"
