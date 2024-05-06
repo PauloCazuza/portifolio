@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ModalContact from "../modalContact";
@@ -7,8 +8,8 @@ import ModalContact from "../modalContact";
 function NavBar() {
     const [showHamburger, setShowHamburguer] = useState(false);
     const [colorNavBar, setColorNavBar] = useState("bg-transparent");
-    if (typeof window === "undefined")
-        return null;
+    // if (typeof window === "undefined")
+    //     return null;    
     const [linkCurrent, setLinkCurrent] = useState(window.location.pathname);
     const [showModal, setShowModal] = useState(false);
 
@@ -31,7 +32,7 @@ function NavBar() {
         });
 
         return () => {
-            window.removeEventListener("scroll", () => {});
+            window.removeEventListener("scroll", () => { });
         }
     }, []);
 
@@ -46,12 +47,12 @@ function NavBar() {
             <div className={"fixed w-full z-50 " + colorNavBar}>
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                        {/* <Image
-                        src={require("../../assets/icon.png")}
-                        alt="icon"
-                        className="size-10 bg-cover"
+                        <Image
+                            src={require("../../assets/Group.svg")}
+                            alt="icon"
+                            className="size-10 bg-cover"
                         />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PR</span> */}
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-[#445964] ">Paulo Roberto</span>
                     </div>
                     <div className="flex md:order-2">
                         <button
@@ -73,31 +74,31 @@ function NavBar() {
                             <li>
                                 <Link
                                     href="/home"
-                                    className={"block py-2 px-3 text-white  rounded md:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500" + linkSelected("home")}
+                                    className={"block py-2 px-3 text-[#445964]  rounded md:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500" + linkSelected("home")}
                                     onClick={() => {
                                         setLinkCurrent("/home");
                                         setShowHamburguer(false);
                                     }}>
-                                    Home
+                                    home
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     href="/sobre"
-                                    className={"block py-2 px-3 text-white  rounded md:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500" + linkSelected("sobre")}
+                                    className={"block py-2 px-3 text-[#445964]  rounded md:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500" + linkSelected("sobre")}
                                     onClick={() => {
                                         setLinkCurrent("/sobre");
                                         setShowHamburguer(false);
-                                    }}>Sobre</Link>
+                                    }}>sobre</Link>
                             </li>
                             <li>
                                 <Link
                                     href="#"
-                                    className={"block py-2 px-3 text-white  rounded md:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500" + linkSelected("contato")}
+                                    className={"block py-2 px-3 text-[#445964]  rounded md:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500" + linkSelected("contato")}
                                     onClick={() => {
                                         setShowModal(true)
                                         setShowHamburguer(false);
-                                    }}>Contate-me</Link>
+                                    }}>contato</Link>
                             </li>
                         </ul>
                     </div>
