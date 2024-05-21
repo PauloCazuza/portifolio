@@ -33,7 +33,7 @@ function ModalContact({
             setLoading(true);
             const data = await sendEmail({
                 ...formModal,
-                subject: "Mensagem do seu portiforio",
+                subject: "Mensagem do seu portfolio",
                 body: `Mensagem de ${name} (${formModal.from}):\n` + formModal.body
             });
 
