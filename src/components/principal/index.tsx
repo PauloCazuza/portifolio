@@ -41,7 +41,7 @@ function Principal() {
                             PAULO ROBERTO
                         </p>
                         <p className="text-[#445864] text-xl md:text-2xl">
-                            Seja bem-vindo ao meu portifólio website
+                            Seja bem-vindo ao meu portfólio website
                         </p>
                     </div>
                     <div
